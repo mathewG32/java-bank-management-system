@@ -1,0 +1,57 @@
+// BANKAPP - QUICK GUIDE
+
+// RUN IT
+// 1. Open the BankApp folder in IntelliJ (File > Open, pick the folder with pom.xml)
+// 2. Let Maven download Apache POI
+// 3. Open src/main/java/com/bankapp/Main.java and click Run
+
+// LOGIN
+// customer1 / pass123  -> CUSTOMER
+// admin1    / admin123 -> ADMIN
+
+// CUSTOMER MENU
+// 1 View Balance
+// 2 View Transaction History
+// 3 Search Transactions
+// 4 Deposit
+// 5 Withdraw
+// 6 Logout
+// 7 Exit Program
+
+// ADMIN MENU
+// 1 View All Accounts
+// 2 Search Account
+// 3 Add Funds to an Account
+// 4 Remove Funds from an Account
+// 5 View Transaction History (any account)
+// 6 Loan Calculator
+// 7 Logout
+// 8 Exit Program
+
+// DATA
+// data/accounts.xlsx has two sheets: Accounts and Transactions.
+// Every deposit/withdraw/admin fund change is saved back into that file.
+// If the file is missing, the app recreates the two sample accounts above.
+
+// LOAN CALCULATOR
+// monthly payment = P * r(1+r)^n / ((1+r)^n - 1)
+// P = loan amount, r = monthly interest rate (annual rate / 12), n = term in months
+// total interest paid = (monthly payment * n) - P
+
+// PROJECT FILES
+// Main.java           entry point, login loop
+// AuthService.java     login logic
+// BankService.java     deposits, withdrawals, search, persistence
+// CustomerMenu.java     customer menu
+// AdminMenu.java        admin menu + loan calculator menu
+// Account.java          account model
+// Transaction.java      transaction model
+// AccountType.java       enum: CUSTOMER, ADMIN
+// TransactionType.java   enum: DEPOSIT, WITHDRAW
+// MenuResult.java         enum: LOGOUT, EXIT_PROGRAM
+// ExcelManager.java       reads/writes accounts.xlsx (Apache POI)
+// LoanCalculator.java      amortization math
+// LoanResult.java           loan calculation result
+// SampleDataSeeder.java     builds starter accounts/transactions
+// MenuInput.java             shared numeric input prompt
+// AppConstants.java          file paths, sheet names, column indexes, seed data
